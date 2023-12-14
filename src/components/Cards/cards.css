@@ -1,7 +1,6 @@
 .divEducation,
 .divExperience {
   display: none;
-  padding-left: 100px;
   flex-direction: column;
   justify-content: center;
   gap: 20px;
@@ -33,7 +32,6 @@
   padding-bottom: 20px;
   font-size: 30px;
   color: goldenrod;
-  padding-left: 100px;
 }
 .divCards {
   width: 400px;

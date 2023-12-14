@@ -129,7 +129,7 @@ ul li:hover {
 .direction {
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   margin-top: var(--rtc-margin-l);
   padding-top: var(--rtc-padding-l);
@@ -139,22 +139,28 @@ ul li:hover {
   color: var(--rtc-font-color3);
 }
 .direction h3 {
-  margin: var(--rtc-padding-xl);
-  padding-left: var(--rtc-padding-xxl);
+  margin-top: var(--rtc-margin-l);
+  padding-right: var(--rtc-padding-xxl);
   text-align: center;
   text-decoration: none;
 }
 .direction button {
   align-self: center;
+  margin-bottom: var(--rtc-margin-m);
   font-weight: 900;
   font-size: 20px;
-  padding-bottom: var(--rtc-padding-l);
-  padding-left: var(--rtc-padding-xxl);
-  color: var(--rtc--font-color2);
-  text-shadow: #fc0 5px 0 8px;
-  border: none;
+  box-shadow: inset 0px 0px 15px 3px #23395e;
+  background: linear-gradient(to bottom, #2e466e 5%, #415989 100%);
+  background-color: #2e466e;
+  border-radius: 17px;
+  border: 1px solid #1f2f47;
+  text-shadow: 0px 1px 0px #263666;
+  padding: 6px 13px;
   cursor: pointer;
   background-color: transparent;
+}
+.direction button a {
+  color: #6f8ef4;
 }
 .direction button a:hover {
   color: var(--rtc--color-principal);
