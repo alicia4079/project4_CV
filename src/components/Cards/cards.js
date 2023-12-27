@@ -30,12 +30,32 @@ export const experience = [
   }
 ]
 
+const scrollToSection = (sectionClassName) => {
+  const section = document.querySelector(`.${sectionClassName}`)
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' })
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  const educationNav = document.querySelectorAll('.listnav')[1]
+  const experienceNav = document.querySelectorAll('.listnav')[2]
+
+  educationNav.addEventListener('click', function () {
+    scrollToSection('divEducation')
+  })
+
+  experienceNav.addEventListener('click', function () {
+    scrollToSection('divExperience')
+  })
+})
+
 export const printEducation = (education) => {
-  const divEducation = document.createElement('div')
-  divEducation.classList = 'divEducation'
+  const sectionEducation = document.createElement('section')
+  sectionEducation.classList = 'divEducation'
   const h3title = document.createElement('h3')
   h3title.textContent = 'Education'
-  divEducation.appendChild(h3title)
+  sectionEducation.appendChild(h3title)
 
   for (const item of education) {
     const nameEducation = document.createElement('h4')
@@ -47,30 +67,30 @@ export const printEducation = (education) => {
     timeEducation.textContent = item.time
     timeEducation.classList = 'time'
 
-    divEducation.appendChild(nameEducation)
-    divEducation.appendChild(placeEducation)
-    divEducation.appendChild(timeEducation)
+    sectionEducation.appendChild(nameEducation)
+    sectionEducation.appendChild(placeEducation)
+    sectionEducation.appendChild(timeEducation)
 
-    document.body.appendChild(divEducation)
+    document.body.appendChild(sectionEducation)
   }
 }
 
 export const showContentEducation = () => {
   const listnav1 = document.querySelectorAll('.listnav')[1]
-  const divEducation = document.querySelector('.divEducation')
+  const sectionEducation = document.querySelector('.divEducation')
 
   listnav1.addEventListener('click', function () {
-    divEducation.style.display =
-      divEducation.style.display === 'none' ? 'flex' : 'none'
+    sectionEducation.style.display =
+      sectionEducation.style.display === 'none' ? 'flex' : 'none'
   })
 }
 
 export const printExperience = (experience) => {
-  const divExperience = document.createElement('div')
-  divExperience.classList = 'divExperience'
+  const sectionExperience = document.createElement('section')
+  sectionExperience.classList = 'divExperience'
   const h3title2 = document.createElement('h3')
   h3title2.textContent = 'Experience'
-  divExperience.appendChild(h3title2)
+  sectionExperience.appendChild(h3title2)
 
   for (const item of experience) {
     const nameExperience = document.createElement('h4')
@@ -84,22 +104,22 @@ export const printExperience = (experience) => {
     descriptionExperience.textContent = item.description
     descriptionExperience.classList = 'description'
 
-    divExperience.appendChild(nameExperience)
-    divExperience.appendChild(placeExperience)
-    divExperience.appendChild(timeExperience)
-    divExperience.appendChild(descriptionExperience)
+    sectionExperience.appendChild(nameExperience)
+    sectionExperience.appendChild(placeExperience)
+    sectionExperience.appendChild(timeExperience)
+    sectionExperience.appendChild(descriptionExperience)
 
-    document.body.appendChild(divExperience)
+    document.body.appendChild(sectionExperience)
   }
 }
 
 export const showContentExperience = () => {
   const listnav2 = document.querySelectorAll('.listnav')[2]
-  const divExperience = document.querySelector('.divExperience')
+  const sectionExperience = document.querySelector('.divExperience')
 
   listnav2.addEventListener('click', function () {
-    divExperience.style.display =
-      divExperience.style.display === 'none' ? 'flex' : 'none'
+    sectionExperience.style.display =
+      sectionExperience.style.display === 'none' ? 'flex' : 'none'
   })
 }
 
@@ -126,16 +146,20 @@ export const projects = [
 ]
 
 export const printprojects = (projects) => {
-  const divProject = document.createElement('div')
-  divProject.classList = 'divProject'
+  const sectionProjects = document.createElement('section')
+  sectionProjects.classList = 'divProject'
+  const divtitle = document.createElement('div')
   const h3title3 = document.createElement('h3')
   h3title3.textContent = 'Projects'
   h3title3.classList = 'titleProject'
-  document.body.appendChild(h3title3)
+  divtitle.appendChild(h3title3)
+  sectionProjects.appendChild(divtitle)
+  const divCards = document.createElement('div')
+  divCards.classList = 'divCards'
 
   for (const element of projects) {
-    const divCards = document.createElement('div')
-    divCards.className = 'divCards'
+    const divElement = document.createElement('div')
+    divElement.classList = 'divElement'
     const imgProject = document.createElement('img')
     imgProject.src = element.image
     imgProject.classList = 'imgProjects'
@@ -146,20 +170,22 @@ export const printprojects = (projects) => {
     const anchorProject = document.createElement('a')
     anchorProject.href = element.anchor
     anchorProject.textContent = 'To see more'
+    anchorProject.target = '_blank'
 
-    divProject.appendChild(divCards)
-    divCards.appendChild(imgProject)
-    divCards.appendChild(nameProject)
-    divCards.appendChild(descriptionProject)
-    divCards.appendChild(anchorProject)
-    document.body.appendChild(divProject)
+    sectionProjects.appendChild(divCards)
+    divCards.appendChild(divElement)
+    divElement.appendChild(imgProject)
+    divElement.appendChild(nameProject)
+    divElement.appendChild(descriptionProject)
+    divElement.appendChild(anchorProject)
+    document.body.appendChild(sectionProjects)
   }
   document.addEventListener('DOMContentLoaded', function () {
     const listnav3 = document.querySelectorAll('.listnav')[3]
-    const divProject = document.querySelector('.divProject')
+    const sectionProjects = document.querySelector('.divProject')
 
     listnav3.addEventListener('click', function () {
-      divProject.scrollIntoView({ behavior: 'smooth' })
+      sectionProjects.scrollIntoView({ behavior: 'smooth' })
     })
   })
 }
