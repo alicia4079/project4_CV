@@ -3,18 +3,47 @@ import './lenguages.css'
 export const lenguages = ['HTML', 'CSS', 'JavaScript', 'VITE']
 
 export const showLenguages = (lenguages) => {
-  const divlenguages = document.createElement('div')
-  divlenguages.className = 'divLenguages'
-  document.body.appendChild(divlenguages)
+  const divLenguages = document.createElement('div')
+  divLenguages.className = 'divLenguages'
 
-  for (const lenguage of lenguages) {
-    const buttonLenguage = document.createElement('button')
-    const nameLenguage = document.createElement('h5')
-    nameLenguage.classList = 'lenguages'
-    nameLenguage.textContent = lenguage
-    buttonLenguage.appendChild(nameLenguage)
-    divlenguages.appendChild(buttonLenguage)
+  const searchInput = document.createElement('input')
+  searchInput.type = 'text'
+  searchInput.placeholder = 'Search technology'
+  searchInput.addEventListener('input', () =>
+    filterLenguages(searchInput.value)
+  )
+
+  const h3titletec = document.createElement('h3')
+  h3titletec.textContent = 'Technologies'
+  h3titletec.classList = 'h3tec'
+
+  const divButtons = document.createElement('div')
+  divButtons.classList = 'divButtons'
+
+  divLenguages.appendChild(h3titletec)
+  divLenguages.appendChild(searchInput)
+  divLenguages.appendChild(divButtons)
+
+  document.body.appendChild(divLenguages)
+
+  const filterLenguages = (searchTerm) => {
+    divButtons.innerHTML = ''
+
+    const filteredLenguages = lenguages.filter((lenguage) =>
+      lenguage.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+
+    for (const lenguage of filteredLenguages) {
+      const buttonLenguage = document.createElement('button')
+      const nameLenguage = document.createElement('h5')
+      nameLenguage.textContent = lenguage
+
+      buttonLenguage.appendChild(nameLenguage)
+      divButtons.appendChild(buttonLenguage)
+    }
   }
+
+  filterLenguages('')
 }
 
 export const showPages = () => {
