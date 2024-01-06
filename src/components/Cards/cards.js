@@ -142,6 +142,12 @@ export const projects = [
     name: 'Pinterest',
     description: 'Page with a search that requests data from an API',
     anchor: 'https://asyncwebvitepint.netlify.app/'
+  },
+  {
+    image: './assets/worldgameshub.png',
+    name: 'World Games Hub',
+    description: 'Page with three propular games with JavaScript',
+    anchor: 'https://worldgameshub.netlify.app/'
   }
 ]
 
